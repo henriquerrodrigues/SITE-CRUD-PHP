@@ -5,5 +5,18 @@
         </header>
 
         <p>{{conteudo}}</p>
+
+        <br>
+        <hr>
+        <br>
+            {% if comentarios == false%}
+                <p>Nenhum comentário... Seja o primeiro a comentar! </p>
+            {% else %}
+                {% for coment in comentarios %}
+                    <h3>{{coment.nome}}</h3>
+                    <p>{{coment.mensagem}}</p>
+                    <br>
+                {% endfor %}
+            {% endif %}
     </article>
 </section>

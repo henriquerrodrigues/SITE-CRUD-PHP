@@ -13,6 +13,7 @@
             $parametros = array();
             $parametros['titulo'] = $postagem->titulo;
             $parametros['conteudo'] = $postagem->conteudo;
+            $parametros['comentarios'] = $postagem->comentarios;
             $conteudo = $template->render($parametros);
             echo $conteudo;
 
