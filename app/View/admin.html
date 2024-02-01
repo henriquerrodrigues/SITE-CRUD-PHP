@@ -9,10 +9,12 @@
         <th>ALTERACAO</th>
         <th>DELECAO</th>
     </tr>
+    {% for postagem in postagens %}
     <tr>
-        <th>ID</th>
-        <th>TITULO</th>
-        <th>ALTERACAO</th>
-        <th>DELECAO</th>
+        <th>{{postagem.id}}</th>
+        <th>{{postagem.titulo}}</th>
+        <th><a href="http://localhost/SITE-CRUD-PHP/?pagina=admin&metodo=change&id={{postagem.id}}">ALTERACAO</a></th>
+        <th><a href="http://localhost/SITE-CRUD-PHP/?pagina=admin&metodo=delete&id={{postagem.id}}">DELECAO</a></th>
     </tr>
+    {% endfor %}
 </table>
