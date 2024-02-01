@@ -1,11 +1,12 @@
 <section>
     <h1>Postagens</h1>
+    {% for postagem in postagens %}
+        <article>
+            <header>
+                <h2><a href = "http://localhost/SITE-CRUD-PHP/?pagina=post&id={{postagem.id}}">{{postagem.titulo}}</a></h2>
+            </header>
 
-    <article>
-        <header>
-            <h2><a href = "#">Titulo da minha postagem</a></h2>
-        </header>
-
-        <p>Conteudo da minha postagem Conteudo da minha postagem Conteudo da minha postagem</p>
-    </article>
+            <p>{{postagem.conteudo}} | {{postagem.id}}</p>
+        </article>
+    {% endfor %}
 </section>
