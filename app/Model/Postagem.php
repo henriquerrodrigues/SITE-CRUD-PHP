@@ -44,5 +44,31 @@ require_once 'lib/Database/Connection.php';
             }
             
             return $resultado;
-        }    
+        }
+        
+        public static function insert($dadosPost)
+        {
+            if(empty($dadosPost['titulo']) OR empty($dadosPost['conteudo']))
+            {
+                throw new Exception("Preencha todos os campos");
+
+                return false;
+            }
+
+            $con = Connection::getConn();
+            
+            $sql = 'INSERT INTO postagem (titulo, conteudo) VALUES (:tit, :cont)';
+            $sql = $con->prepare($sql);
+            $sql->bindValue(':tit', $dadosPost['titulo']);
+            $sql->bindValue(':cont', $dadosPost['conteudo']);
+            $res = $sql->execute();
+
+            if($res == 0)
+            {
+               throw new Exception("FALHA AO PUBLICAR"); 
+
+               return false;
+            }
+                return true;
+        }
     }
